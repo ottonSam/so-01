@@ -12,13 +12,13 @@ void create_matriz(int l, int c, string matriz)
 {
     std::ofstream outfile;
     outfile.open("../matrizes/" + matriz + ".txt", std::ios_base::app);
-    std::vector<std::vector<int>> coluna; /*cria o vetor da coluna1*/
-    for (int i{0}; i < l; i++)
-    {                                         /*cria as l1 posicoes pra os vetores de linha*/
-        coluna.push_back(std::vector<int>()); /*cria vetor dentro da posicao*/
-        for (int j{0}; j < c; j++)
-        {                                     /*preenche o vetor da linha*/
-            coluna[i].push_back(rand() % 10); /*gera um valor aleatorio*/
+    std::vector<std::vector<int>> coluna;
+    for (int i = 0; i < l; i++)
+    {
+        coluna.push_back(std::vector<int>());
+        for (int j = 0; j < c; j++)
+        {
+            coluna[i].push_back(rand() % 10);
             outfile << coluna[i][j] << " ";
         }
         outfile << endl;
