@@ -19,7 +19,7 @@ void create_matriz(int l, int c, string matriz)
     {
         linha = "";
         for (int j = 0; j < c; j++)
-            linha += std::to_string(rand() % 10) + " ";
+            linha += std::to_string(rand() % 10);
         outfile << linha << endl;
     }
     outfile.close();
