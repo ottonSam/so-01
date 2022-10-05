@@ -18,8 +18,8 @@ int coluna_atual = 0;
 
 void *multi(void *tid)
 {
-    ofstream file;
-    file.open("saidas/threads/tread-" + to_string(lm2) + "X" + to_string(cm1) + "-" + to_string(P) + "-id_" + to_string((size_t)tid) + ".txt");
+    // ofstream file;
+    // file.open("saidas/threads/tread-" + to_string(lm2) + "X" + to_string(cm1) + "-" + to_string(P) + "-id_" + to_string((size_t)tid) + ".txt");
     chrono::steady_clock::time_point tbegin = chrono::steady_clock::now();
     
     int linha_atual = (P * (size_t)tid) / lm2;
@@ -32,7 +32,7 @@ void *multi(void *tid)
         {
             matriz3[linha_atual][coluna_atual] += matriz1[linha_atual][j] * matriz2[j][coluna_atual];
         }
-        file << "c" << linha_atual << "-" << coluna_atual << " " << matriz3[linha_atual][coluna_atual] << endl;
+        // file << "c" << linha_atual << "-" << coluna_atual << " " << matriz3[linha_atual][coluna_atual] << endl;
         coluna_atual++;
         if (coluna_atual == cm1)
         {
@@ -42,10 +42,10 @@ void *multi(void *tid)
     }
     chrono::steady_clock::time_point tend = chrono::steady_clock::now();
     // cout << "Tempo Thread " << tid << ": " << chrono::duration_cast<chrono::milliseconds>(tend - tbegin).count() << "(ms)" << endl;
-    file << "Tempo: " << chrono::duration_cast<chrono::milliseconds>(tend - tbegin).count() << "(ms)" << endl;
+    // file << "Tempo: " << chrono::duration_cast<chrono::milliseconds>(tend - tbegin).count() << "(ms)" << endl;
     tempos.push_back(chrono::duration_cast<chrono::milliseconds>(tend - tbegin).count());
 
-    file.close();
+    // file.close();
     pthread_exit(NULL);
 }
 

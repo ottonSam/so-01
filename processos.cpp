@@ -89,8 +89,8 @@ int main(int argc, char *argv[])
         if (vetor_pid[i] == 0)
         {
 
-            ofstream file;
-            file.open("saidas/processos/processo-" + to_string(lm2) + "X" + to_string(cm1) + "-" + to_string(P) + "-id_" + to_string(i) + ".txt");
+            // ofstream file;
+            // file.open("saidas/processos/processo-" + to_string(lm2) + "X" + to_string(cm1) + "-" + to_string(P) + "-id_" + to_string(i) + ".txt");
 
             chrono::steady_clock::time_point begin = chrono::steady_clock::now();
 
@@ -103,12 +103,12 @@ int main(int argc, char *argv[])
                 {
                     matriz3[l][c] += matriz1[l][a] * matriz2[a][c];
                 }
-                file << "c" << l << "-" << c << " " << matriz3[l][c] << endl;
+                // file << "c" << l << "-" << c << " " << matriz3[l][c] << endl;
             }
             chrono::steady_clock::time_point end = chrono::steady_clock::now();
-            file << "Tempo: " << chrono::duration_cast<chrono::milliseconds>(end - begin).count() << "(ms)" << endl;
+            // file << "Tempo: " << chrono::duration_cast<chrono::milliseconds>(end - begin).count() << "(ms)" << endl;
             tempos.push_back(chrono::duration_cast<chrono::milliseconds>(end - begin).count());
-            file.close();
+            // file.close();
             break;
         }
     }

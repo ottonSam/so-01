@@ -60,8 +60,8 @@ int main(int argc, char *argv[])
 
     ofstream outputfile;
     outputfile.open("saidas/tempos-sequencial"+to_string(lm2)+"X"+to_string(cm1)+"-outputfile.txt",ios_base::app);
-    ofstream file;
-    file.open("saidas/sequenciais/sequencial"+to_string(lm2)+"X"+to_string(cm1)+".txt");
+    // ofstream file;
+    // file.open("saidas/sequenciais/sequencial"+to_string(lm2)+"X"+to_string(cm1)+".txt");
 
     chrono::steady_clock::time_point begin = chrono::steady_clock::now();
     vector<vector<int>> res;
@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
             for (int j = 0; j < lm2; ++j)
                 nv += (matriz1[i][j] * matriz2[j][h]);
             rlinha.push_back(nv);
-            file << "c" << to_string((int) res.size()+1) << "-" << to_string((int) rlinha.size()) << " " << to_string(nv) << endl; 
+            // file << "c" << to_string((int) res.size()+1) << "-" << to_string((int) rlinha.size()) << " " << to_string(nv) << endl; 
         }   
         res.push_back(rlinha);
     }
@@ -91,9 +91,9 @@ int main(int argc, char *argv[])
     chrono::steady_clock::time_point end = chrono::steady_clock::now();
     // cout << "Tempo " << chrono::duration_cast<chrono::milliseconds>(end - begin).count() << "(ms)" << endl;
     outputfile << "Tempo: " << chrono::duration_cast<chrono::milliseconds>(end - begin).count() << "(ms)" << endl;
-    file << "Tempo: " << chrono::duration_cast<chrono::milliseconds>(end - begin).count() << "(ms)" << endl;
+    // file << "Tempo: " << chrono::duration_cast<chrono::milliseconds>(end - begin).count() << "(ms)" << endl;
     outputfile.close();
-    file.close();
+    // file.close();
 
     return 0;
 }
