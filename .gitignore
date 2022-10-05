@@ -1,6 +1,10 @@
-auxiliar
-sequencial
-threads
-processos
+saidas/sequenciais/*.txt
+saidas/processos/*.txt
+saidas/threads/*.txt
+
+/auxiliar
+/sequencial
+/threads
+/processos
 
 .vscode
