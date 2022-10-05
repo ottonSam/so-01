@@ -3,4 +3,4 @@ sequencial
 threads
 processos
 
-*.txt
+.vscode
