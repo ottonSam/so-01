@@ -31,11 +31,7 @@ vector<vector<int>> get_matriz(string filename)
             vector<int> ilinha;
             std::getline(arquivo, slinha);
             for (int j = 0; j < c; j++)
-            {
                 ilinha.push_back(slinha[j] - '0');
-                // cout << stoi(to_string(slinha[j])) << " ";
-            }
-            // cout << endl;
             matriz.push_back(ilinha);
         }
     }
@@ -51,7 +47,7 @@ int main(int argc, char *argv[])
 
     vector<vector<int>> matriz1 = get_matriz(arquivo1);
     vector<vector<int>> matriz2 = get_matriz(arquivo2);
-    
+
     int lm1, cm1, lm2, cm2;
     lm1 = (int)matriz1.size();
     cm1 = (int)matriz1[0].size();
@@ -59,13 +55,10 @@ int main(int argc, char *argv[])
     cm2 = (int)matriz2[0].size();
 
     ofstream outputfile;
-    outputfile.open("saidas/tempos-sequencial"+to_string(lm2)+"X"+to_string(cm1)+"-outputfile.txt",ios_base::app);
-    // ofstream file;
-    // file.open("saidas/sequenciais/sequencial"+to_string(lm2)+"X"+to_string(cm1)+".txt");
+    outputfile.open("saidas/tempos-sequencial" + to_string(lm2) + "X" + to_string(cm1) + "-outputfile.txt", ios_base::app);
 
     chrono::steady_clock::time_point begin = chrono::steady_clock::now();
     vector<vector<int>> res;
-
 
     if (cm1 != lm2)
     {
@@ -83,17 +76,13 @@ int main(int argc, char *argv[])
             for (int j = 0; j < lm2; ++j)
                 nv += (matriz1[i][j] * matriz2[j][h]);
             rlinha.push_back(nv);
-            // file << "c" << to_string((int) res.size()+1) << "-" << to_string((int) rlinha.size()) << " " << to_string(nv) << endl; 
-        }   
+        }
         res.push_back(rlinha);
     }
-    // finaliza a marcacao do tempo
+
     chrono::steady_clock::time_point end = chrono::steady_clock::now();
-    // cout << "Tempo " << chrono::duration_cast<chrono::milliseconds>(end - begin).count() << "(ms)" << endl;
     outputfile << "Tempo: " << chrono::duration_cast<chrono::milliseconds>(end - begin).count() << "(ms)" << endl;
-    // file << "Tempo: " << chrono::duration_cast<chrono::milliseconds>(end - begin).count() << "(ms)" << endl;
     outputfile.close();
-    // file.close();
 
     return 0;
 }

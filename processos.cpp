@@ -90,10 +90,6 @@ int main(int argc, char *argv[])
 
         if (vetor_pid[i] == 0)
         {
-
-            // ofstream file;
-            // file.open("saidas/processos/processo-" + to_string(lm2) + "X" + to_string(cm1) + "-" + to_string(P) + "-id_" + to_string(i) + ".txt");
-
             chrono::steady_clock::time_point begin = chrono::steady_clock::now();
 
             for (int k{inicial}; k < final; k++)
@@ -105,11 +101,10 @@ int main(int argc, char *argv[])
                 {
                     matriz3[l][c] += matriz1[l][a] * matriz2[a][c];
                 }
-                // file << "c" << l << "-" << c << " " << matriz3[l][c] << endl;
             }
             chrono::steady_clock::time_point end = chrono::steady_clock::now();
             tempos.push_back(chrono::duration_cast<chrono::milliseconds>(end - begin).count());
-            // file.close();
+
             break;
         }
     }
@@ -121,9 +116,7 @@ int main(int argc, char *argv[])
     }
     
     for (int j = 0; j < (int)tempos.size(); j++)
-    {
         outputfile << "Tempo: " << tempos[j] << "(ms)" << endl;
-    }
 
     outputfile.close();
 
