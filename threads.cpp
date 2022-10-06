@@ -7,7 +7,6 @@
 
 using namespace std;
 
-vector<int> tempos;
 vector<vector<int>> matriz1;
 vector<vector<int>> matriz2;
 vector<vector<int>> matriz3;
@@ -20,7 +19,6 @@ void *multi(void *tid)
 {
     // ofstream file;
     // file.open("saidas/threads/tread-" + to_string(lm2) + "X" + to_string(cm1) + "-" + to_string(P) + "-id_" + to_string((size_t)tid) + ".txt");
-    chrono::steady_clock::time_point tbegin = chrono::steady_clock::now();
     
     int linha_atual = (P * (size_t)tid) / lm2;
     int coluna_atual = (P * (size_t)tid) % cm1;
@@ -40,12 +38,13 @@ void *multi(void *tid)
             coluna_atual = 0;
         }
     }
-    chrono::steady_clock::time_point tend = chrono::steady_clock::now();
+    
     // cout << "Tempo Thread " << tid << ": " << chrono::duration_cast<chrono::milliseconds>(tend - tbegin).count() << "(ms)" << endl;
     // file << "Tempo: " << chrono::duration_cast<chrono::milliseconds>(tend - tbegin).count() << "(ms)" << endl;
-    tempos.push_back(chrono::duration_cast<chrono::milliseconds>(tend - tbegin).count());
+    // tempos.push_back(chrono::duration_cast<chrono::milliseconds>(tend - tbegin).count());
 
     // file.close();
+
     pthread_exit(NULL);
 }
 
@@ -121,22 +120,18 @@ int main(int argc, char *argv[])
     }
 
     pthread_t threads[MAX_THREADS];
+    chrono::steady_clock::time_point tbegin = chrono::steady_clock::now();
 
     for (int i = 0; i < MAX_THREADS; i++)
     {
         pthread_create(&threads[i], NULL, multi, (void *)(size_t)(i));
     }
 
-    for (int i = 0; i < MAX_THREADS; i++)
-    {
-        pthread_join(threads[i], NULL);
-    }
+    chrono::steady_clock::time_point tend = chrono::steady_clock::now();
 
-        outputfile << lm2 << " " << cm1 << endl;
-    for (int j = 0; j < (int) tempos.size(); j++)
-    {
-        outputfile << "Tempo: "<< tempos[j] << "(ms)" << endl;
-    }
+    outputfile << lm2 << " " << cm1 << endl;
+    outputfile << "Tempo: " << chrono::duration_cast<chrono::milliseconds>(tend - tbegin).count() << "(ms)" << endl;
+    
     
     outputfile.close();
     return 0;

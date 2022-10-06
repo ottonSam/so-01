@@ -5,6 +5,8 @@
 #include <chrono>
 #include <sstream>
 #include <unistd.h>
+#include <sys/wait.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -106,7 +108,6 @@ int main(int argc, char *argv[])
                 // file << "c" << l << "-" << c << " " << matriz3[l][c] << endl;
             }
             chrono::steady_clock::time_point end = chrono::steady_clock::now();
-            // file << "Tempo: " << chrono::duration_cast<chrono::milliseconds>(end - begin).count() << "(ms)" << endl;
             tempos.push_back(chrono::duration_cast<chrono::milliseconds>(end - begin).count());
             // file.close();
             break;
