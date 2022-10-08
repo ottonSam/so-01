@@ -67,4 +67,18 @@ O programa deve executando passando como parâmetro as matriz a serem multiplica
 | p | fator para calculo da quantidade de threads |
 
 #### Exemplo de saída
-Se tudo ocorrer adequadamente de ver criado um arquivo de log para registrar o tempo de execução do programa. O arquivo criado se encontra no diretório **/saidas** com o seguinte padrão de nomenclatura `/saidas/tempos-threads(numero de linhas da matriz resultante)X(numero de colunas da matriz resultante)-(fator para calculo da quantidade de threads)-output.txt`. Exemplo `/saidas/tempos-threads100X100-8-output.txt`.
+Se tudo ocorrer adequadamente deve ser criado um arquivo de log para registrar o tempo de execução do programa. O arquivo criado se encontra no diretório **/saidas** com o seguinte padrão de nomenclatura `/saidas/tempos-threads(numero de linhas da matriz resultante)X(numero de colunas da matriz resultante)-(fator para calculo da quantidade de threads)-output.txt`. Exemplo `/saidas/tempos-threads100X100-8-output.txt`.
+
+### Processos
+O programa deve executando passando como parâmetro as matriz a serem multiplicadas e o fator para calcular a quantidade de processos que serão utilizadas.
+```bash
+./processos m1 m2 p
+```
+| Nome | Descrição |
+| ---- | --------- |
+| m1 | caminho para a matriz 1 |
+| m2 | caminho para a matriz 2 |
+| p | fator para calculo da quantidade de processos |
+
+#### Exemplo de saída
+Se tudo ocorrer adequadamente deve ser criado um arquivo de log para registrar o tempo de execução do programa. O arquivo criado se encontra no diretório **/saidas** com o seguinte padrão de nomenclatura `/saidas/tempos-processos(numero de linhas da matriz resultante)X(numero de colunas da matriz resultante)-(fator para calculo da quantidade de processos)-output.txt`. Exemplo `/saidas/tempos-processos100X100-8-output.txt`.
