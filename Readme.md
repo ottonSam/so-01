@@ -18,12 +18,12 @@ Foram construídos quatro programas auxiliar, sequencial, threads e processos re
 make
  ```
 
-Caso queira compilar os códigos separadamente os seguintes script podem ser executados
+Caso queira compilar os códigos separadamente os seguintes comandos podem ser executados
 ```bash
-make auxiliar
-make sequencial
-make threads
-make processos
+	g++ -Wall auxiliar.cpp -o auxiliar
+	g++ -Wall sequencial.cpp -o sequencial
+	g++ -Wall threads.cpp -o threads -pthread
+	g++ -Wall processos.cpp -o processos *atualmente se encontra com erros*
 ```
 ---
 ## Como devemos executar os binários
@@ -69,7 +69,10 @@ O programa deve executando passando como parâmetro as matriz a serem multiplica
 #### Exemplo de saída
 Se tudo ocorrer adequadamente deve ser criado um arquivo de log para registrar o tempo de execução do programa. O arquivo criado se encontra no diretório **/saidas** com o seguinte padrão de nomenclatura `/saidas/tempos-threads(numero de linhas da matriz resultante)X(numero de colunas da matriz resultante)-(fator para calculo da quantidade de threads)-output.txt`. Exemplo `/saidas/tempos-threads100X100-8-output.txt`.
 
-### Processos
+<!-- 
+    Issue: Resolver calculo de matriz com múltiplos processos.
+ -->
+<!-- ### Processos
 O programa deve executando passando como parâmetro as matriz a serem multiplicadas e o fator para calcular a quantidade de processos que serão utilizadas.
 ```bash
 ./processos m1 m2 p
@@ -81,4 +84,4 @@ O programa deve executando passando como parâmetro as matriz a serem multiplica
 | p | fator para calculo da quantidade de processos |
 
 #### Exemplo de saída
-Se tudo ocorrer adequadamente deve ser criado um arquivo de log para registrar o tempo de execução do programa. O arquivo criado se encontra no diretório **/saidas** com o seguinte padrão de nomenclatura `/saidas/tempos-processos(numero de linhas da matriz resultante)X(numero de colunas da matriz resultante)-(fator para calculo da quantidade de processos)-output.txt`. Exemplo `/saidas/tempos-processos100X100-8-output.txt`.
+Se tudo ocorrer adequadamente deve ser criado um arquivo de log para registrar o tempo de execução do programa. O arquivo criado se encontra no diretório **/saidas** com o seguinte padrão de nomenclatura `/saidas/tempos-processos(numero de linhas da matriz resultante)X(numero de colunas da matriz resultante)-(fator para calculo da quantidade de processos)-output.txt`. Exemplo `/saidas/tempos-processos100X100-8-output.txt`. -->
