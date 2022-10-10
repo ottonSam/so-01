@@ -3,6 +3,8 @@
 ### Autores:
 - Samuel Ótton
 - João Anisio
+### Video:
+https://vimeo.com/758559887
 ---
 ## Compilação
 Foram construídos quatro programas auxiliar, sequencial, threads e processos respectivamente:
